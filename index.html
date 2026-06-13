@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>พี่ไนซ์รักหนูไหม 🎮</title>
+
+    <!-- 🌟 โค้ดสำหรับตั้งค่ารูปภาพที่จะให้โชว์ใน IG -->
+    <meta property="og:title" content="พี่ไนซ์รักหนูไหม 🖤💖">
+    <meta property="og:description" content="มีคำถามจะถาม กดเข้ามาตอบหน่อยน้ะ 🥰">
+    <meta property="og:image" content="preview.jpg"> <!-- ชื่อไฟล์รูปที่เราจะอัปโหลด -->
+    <meta property="og:type" content="website">
+
+    <style>
+        body {
+            background-color: #111;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .game-box {
+            border: 4px dashed #00ff00;
+            padding: 40px 30px;
+            background: #000;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 250px;
+        }
+        h1 { font-size: 24px; margin-bottom: 30px; text-transform: uppercase; line-height: 1.5; }
+        .btn-container { display: flex; justify-content: center; align-items: center; gap: 20px; width: 100%; flex-wrap: wrap; }
+        .btn { background: #000; color: #00ff00; border: 2px solid #00ff00; padding: 10px 25px; font-size: 16px; font-family: inherit; cursor: pointer; font-weight: bold; transition: all 0.2s ease; }
+        .btn:hover { background: #00ff00; color: #000; }
+        #love-btn { z-index: 100; }
+        #result { display: none; font-size: 26px; color: #ff00ff; text-shadow: 0 0 10px #ff00ff; font-weight: bold; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="game-box">
+        <h1 id="question">พี่ไนซ์รักหนูไหม</h1>
+        <div class="btn-container" id="actions">
+            <button class="btn" id="love-btn" onclick="winGame()">รักที่สุด</button>
+            <button class="btn" id="no-btn" onclick="makeLoveGrow()">ไม่รัก</button>
+        </div>
+        <div id="result">
+            รักเหมือนกันน๊าา 🥰🖤💖
+        </div>
+    </div>
+
+    <script>
+        let scaleSize = 1; let paddingX = 25; let paddingY = 10; let fontSize = 16;
+        function makeLoveGrow() {
+            scaleSize += 0.3; paddingX += 10; paddingY += 5; fontSize += 4;
+            const loveBtn = document.getElementById('love-btn');
+            loveBtn.style.transform = `scale(${scaleSize})`;
+            loveBtn.style.padding = `${paddingY}px ${paddingX}px`;
+            loveBtn.style.fontSize = `${fontSize}px`;
+            loveBtn.style.borderColor = '#ff0055'; loveBtn.style.color = '#ff0055';
+            if (scaleSize > 3) { document.getElementById('no-btn').style.display = 'none'; }
+        }
+        function winGame() {
+            document.getElementById('actions').style.display = 'none';
+            document.getElementById('question').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
